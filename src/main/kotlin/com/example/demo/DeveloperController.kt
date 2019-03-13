@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController
 class DeveloperController{
 
     var developers = mutableListOf<Developer>()
+    
+    @Value("\${VERSION}")
+    val version: String
 
     @GetMapping("/developers")
     fun list():List<Developer>{
@@ -19,7 +22,7 @@ class DeveloperController{
     fun create(@RequestBody developer: Developer):String
     {
         developers.add(developer)
-        return "created"
+        return "created from version $version"
     }
 }
 
