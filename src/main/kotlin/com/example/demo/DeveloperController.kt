@@ -1,5 +1,6 @@
 package com.example.demo
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -11,7 +12,7 @@ class DeveloperController{
     var developers = mutableListOf<Developer>()
     
     @Value("\${VERSION}")
-    val version: String
+    val version: String? = null
 
     @GetMapping("/developers")
     fun list():List<Developer>{
